@@ -1,0 +1,277 @@
+/* Advanced Todo App Styles */
+
+.root {
+    -fx-font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+}
+
+/* List View Styling */
+.list-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: rgba(33, 150, 243, 0.1);
+    -fx-border-color: #2196F3;
+    -fx-border-radius: 5;
+}
+
+/* Button Styles */
+.edit-button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-padding: 5 10;
+    -fx-font-size: 11px;
+}
+
+.edit-button:hover {
+    -fx-background-color: #1976D2;
+}
+
+.delete-button {
+    -fx-background-color: #F44336;
+    -fx-text-fill: white;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+    -fx-padding: 5 10;
+    -fx-font-size: 11px;
+}
+
+.delete-button:hover {
+    -fx-background-color: #D32F2F;
+}
+
+/* ComboBox Styling */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.combo-box:focused {
+    -fx-border-color: #2196F3;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0, 0, 2);
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-padding: 8;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #e3f2fd;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}
+
+/* Additional ComboBox styling for better visibility */
+.combo-box .arrow-button {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #666;
+}
+
+.combo-box .text-input {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+.combo-box .cell {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+/* Fix for ListView in main view */
+.list-view .virtual-flow .clipped-container .sheet .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+/* TextField Styling */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8;
+}
+
+.text-field:focused {
+    -fx-border-color: #2196F3;
+    -fx-border-width: 2;
+}
+
+/* TextArea Styling */
+.text-area {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.text-area:focused {
+    -fx-border-color: #2196F3;
+    -fx-border-width: 2;
+}
+
+.text-area .content {
+    -fx-background-color: white;
+    -fx-background-radius: 5;
+}
+
+/* DatePicker Styling */
+.date-picker {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.date-picker:focused {
+    -fx-border-color: #2196F3;
+}
+
+/* Spinner Styling */
+.spinner {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.spinner:focused {
+    -fx-border-color: #2196F3;
+}
+
+.spinner .text-field {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: #ddd;
+}
+
+.spinner .increment-arrow-button:hover,
+.spinner .decrement-arrow-button:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+.spinner .increment-arrow,
+.spinner .decrement-arrow {
+    -fx-background-color: #666;
+}
+
+/* CheckBox Styling */
+.check-box {
+    -fx-text-fill: #333;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #4CAF50;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #4CAF50;
+    -fx-border-color: #4CAF50;
+}
+
+/* Priority Labels */
+.priority-high {
+    -fx-background-color: #F44336;
+    -fx-text-fill: white;
+    -fx-padding: 2 6;
+    -fx-background-radius: 3;
+}
+
+.priority-medium {
+    -fx-background-color: #FF9800;
+    -fx-text-fill: white;
+    -fx-padding: 2 6;
+    -fx-background-radius: 3;
+}
+
+.priority-low {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-padding: 2 6;
+    -fx-background-radius: 3;
+}
+
+/* Scroll Bar Styling */
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: transparent;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #a0a0a0;
+}
+
+/* Dialog Styling */
+.dialog-pane {
+    -fx-background-color: white;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Hover effects */
+.button:hover {
+    -fx-cursor: hand;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}

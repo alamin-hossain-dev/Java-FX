@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Console appender that outputs ALL log levels to stdout (not stderr) -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <pattern>[%thread] %level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Set root logger level and appender -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+    
+    <!-- Reduce HikariCP verbose logging -->
+    <logger name="com.zaxxer.hikari" level="WARN"/>
+</configuration>
