@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo.controller.TodoMainController" stylesheets="@styles.css">
+   <top>
+      <VBox spacing="10" style="-fx-background-color: #2196F3; -fx-padding: 20;">
+         <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Advanced Todo List" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="addTodoButton" mnemonicParsing="false" onAction="#handleAddTodo" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 5;" text="Add Todo" />
+            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 5;" text="Refresh" />
+            <Button mnemonicParsing="false" onAction="#handleTestNotification" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 5;" text="Test Notification" />
+         </HBox>
+         
+         <!-- Statistics Bar -->
+         <HBox alignment="CENTER" spacing="30" style="-fx-background-color: rgba(255,255,255,0.1); -fx-padding: 15; -fx-background-radius: 5;">
+            <VBox alignment="CENTER" spacing="5">
+               <Label fx:id="totalCountLabel" text="0" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="20.0" />
+                  </font>
+               </Label>
+               <Label text="Total" textFill="WHITE">
+                  <font>
+                     <Font size="12.0" />
+                  </font>
+               </Label>
+            </VBox>
+            <VBox alignment="CENTER" spacing="5">
+               <Label fx:id="pendingCountLabel" text="0" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="20.0" />
+                  </font>
+               </Label>
+               <Label text="Pending" textFill="WHITE">
+                  <font>
+                     <Font size="12.0" />
+                  </font>
+               </Label>
+            </VBox>
+            <VBox alignment="CENTER" spacing="5">
+               <Label fx:id="completedCountLabel" text="0" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="20.0" />
+                  </font>
+               </Label>
+               <Label text="Completed" textFill="WHITE">
+                  <font>
+                     <Font size="12.0" />
+                  </font>
+               </Label>
+            </VBox>
+            <VBox alignment="CENTER" spacing="5">
+               <Label fx:id="overdueCountLabel" text="0" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold" size="20.0" />
+                  </font>
+               </Label>
+               <Label text="Overdue" textFill="WHITE">
+                  <font>
+                     <Font size="12.0" />
+                  </font>
+               </Label>
+            </VBox>
+         </HBox>
+      </VBox>
+   </top>
+   
+   <center>
+      <VBox spacing="10">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         
+         <!-- Filter and Search Bar -->
+         <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: #f5f5f5; -fx-padding: 15; -fx-background-radius: 5;">
+            <Label text="Filter:" style="-fx-font-weight: bold; -fx-text-fill: #333;" />
+            <ComboBox fx:id="filterComboBox" prefWidth="120.0" style="-fx-background-color: white; -fx-border-color: #ccc; -fx-border-radius: 3;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Search:" style="-fx-font-weight: bold; -fx-text-fill: #333;" />
+            <TextField fx:id="searchField" prefWidth="200.0" promptText="Search todos..." style="-fx-background-color: white; -fx-border-color: #ccc; -fx-border-radius: 3;" />
+         </HBox>
+         
+         <!-- Todo List -->
+         <ListView fx:id="todoListView" style="-fx-background-radius: 5;" VBox.vgrow="ALWAYS">
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+         </ListView>
+         
+         <!-- Empty State Container -->
+         <VBox fx:id="emptyStateContainer" alignment="CENTER" managed="false" visible="false" VBox.vgrow="ALWAYS">
+            <Label text="No todos found" textFill="GRAY">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="Click 'Add Todo' to create your first task" textFill="LIGHTGRAY">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </VBox>
+      </VBox>
+   </center>
+</BorderPane>

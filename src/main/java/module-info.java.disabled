@@ -1,0 +1,30 @@
+module org.example.demo {
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires javafx.web;
+    requires javafx.graphics;
+    requires java.sql;
+    requires java.desktop;
+    requires com.zaxxer.hikari;
+    requires org.slf4j;
+
+    requires org.controlsfx.controls;
+    requires com.dlsc.formsfx;
+    requires net.synedra.validatorfx;
+    requires org.kordamp.ikonli.javafx;
+    requires org.kordamp.bootstrapfx.core;
+    requires eu.hansolo.tilesfx;
+    requires com.almasb.fxgl.all;
+
+    opens org.example.demo to javafx.fxml;
+    opens org.example.demo.controller to javafx.fxml;
+    opens org.example.demo.model to javafx.base;
+    
+    exports org.example.demo;
+    exports org.example.demo.controller;
+    exports org.example.demo.model;
+    exports org.example.demo.service;
+    exports org.example.demo.component;
+    exports org.example.demo.config;
+    exports org.example.demo.dao;
+}
