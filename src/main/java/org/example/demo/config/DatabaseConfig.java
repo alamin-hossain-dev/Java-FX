@@ -12,23 +12,49 @@ import java.sql.Statement;
 
 public class DatabaseConfig {
     private static final Logger logger = LoggerFactory.getLogger(DatabaseConfig.class);
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/todo_app?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "root"; // Change this to your MySQL password
+    
+    // Configuration keys
+    private static final String DB_URL_KEY = "db.url";
+    private static final String DB_USERNAME_KEY = "db.username";
+    private static final String DB_PASSWORD_KEY = "db.password";
+    private static final String DB_SCHEMA_KEY = "db.schema.name";
+    private static final String DB_AUTO_CREATE_KEY = "db.schema.autoCreate";
+    
+    // Connection pool configuration keys
+    private static final String POOL_MAX_SIZE_KEY = "db.pool.maximumPoolSize";
+    private static final String POOL_MIN_IDLE_KEY = "db.pool.minimumIdle";
+    private static final String POOL_CONNECTION_TIMEOUT_KEY = "db.pool.connectionTimeout";
+    private static final String POOL_IDLE_TIMEOUT_KEY = "db.pool.idleTimeout";
+    private static final String POOL_MAX_LIFETIME_KEY = "db.pool.maxLifetime";
     
     private static HikariDataSource dataSource;
     
     static {
         try {
+            // Load database configuration from properties
+            String dbUrl = ConfigurationManager.getProperty(DB_URL_KEY);
+            String dbUsername = ConfigurationManager.getProperty(DB_USERNAME_KEY);
+            String dbPassword = ConfigurationManager.getProperty(DB_PASSWORD_KEY);
+            
+            // Validate required configuration
+            if (dbUrl == null || dbUsername == null || dbPassword == null) {
+                throw new IllegalStateException("Missing required database configuration. Please check your database.properties file.");
+            }
+            
+            logger.info("Initializing database connection pool...");
+            logger.debug("Database URL: {}", dbUrl.replaceAll("password=[^&]*", "password=***"));
+            
             HikariConfig config = new HikariConfig();
-            config.setJdbcUrl(DB_URL);
-            config.setUsername(DB_USER);
-            config.setPassword(DB_PASSWORD);
-            config.setMaximumPoolSize(10);
-            config.setMinimumIdle(2);
-            config.setConnectionTimeout(30000);
-            config.setIdleTimeout(600000);
-            config.setMaxLifetime(1800000);
+            config.setJdbcUrl(dbUrl);
+            config.setUsername(dbUsername);
+            config.setPassword(dbPassword);
+            
+            // Configure connection pool from properties
+            config.setMaximumPoolSize(ConfigurationManager.getIntProperty(POOL_MAX_SIZE_KEY, 10));
+            config.setMinimumIdle(ConfigurationManager.getIntProperty(POOL_MIN_IDLE_KEY, 2));
+            config.setConnectionTimeout(ConfigurationManager.getIntProperty(POOL_CONNECTION_TIMEOUT_KEY, 30000));
+            config.setIdleTimeout(ConfigurationManager.getIntProperty(POOL_IDLE_TIMEOUT_KEY, 600000));
+            config.setMaxLifetime(ConfigurationManager.getIntProperty(POOL_MAX_LIFETIME_KEY, 1800000));
             
             dataSource = new HikariDataSource(config);
             
@@ -37,8 +63,10 @@ public class DatabaseConfig {
                 logger.info("Database connection established successfully!");
             }
             
-            // Initialize database tables
-            initializeDatabase();
+            // Initialize database tables if auto-create is enabled
+            if (ConfigurationManager.getBooleanProperty(DB_AUTO_CREATE_KEY, true)) {
+                initializeDatabase();
+            }
             
         } catch (Exception e) {
             logger.error("Failed to initialize database: {}", e.getMessage());
@@ -69,9 +97,11 @@ public class DatabaseConfig {
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement()) {
             
+            String schemaName = ConfigurationManager.getProperty(DB_SCHEMA_KEY, "todo_app");
+            
             // Create a database if it doesn't exist
-            stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS todo_app");
-            stmt.executeUpdate("USE todo_app");
+            stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS " + schemaName);
+            stmt.executeUpdate("USE " + schemaName);
             
             // Create todos table
             String createTableSQL = """

@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1258318-86f0-4c53-9964-45155a84a7cd" name="Changes" comment="Default To do Application using Java FX.">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="b1258318-86f0-4c53-9964-45155a84a7cd" name="Changes" comment="Updated git ignore">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/demo/service/TodoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/demo/service/TodoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/demo/config/DatabaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/demo/config/DatabaseConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +123,7 @@
       <option name="presentableId" value="Default" />
       <updated>1751447740552</updated>
       <workItem from="1751447743193" duration="4535000" />
-      <workItem from="1751507890733" duration="14339000" />
+      <workItem from="1751507890733" duration="16140000" />
     </task>
     <task id="LOCAL-00001" summary="Default To do Application using Java FX.">
       <option name="closed" value="true" />
@@ -135,7 +133,23 @@
       <option name="project" value="LOCAL" />
       <updated>1751520785352</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updated logging.">
+      <option name="closed" value="true" />
+      <created>1751527544092</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1751527544092</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated git ignore">
+      <option name="closed" value="true" />
+      <created>1751527723457</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1751527723457</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,7 +168,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Default To do Application using Java FX." />
-    <option name="LAST_COMMIT_MESSAGE" value="Default To do Application using Java FX." />
+    <MESSAGE value="Updated logging." />
+    <MESSAGE value="Updated git ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated git ignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

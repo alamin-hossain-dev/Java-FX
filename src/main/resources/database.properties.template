@@ -1,0 +1,18 @@
+# Database Configuration Template
+# Copy this file to database.properties and configure with your local settings
+
+# Database Connection Settings
+db.url=jdbc:mysql://localhost:3306/todo_app?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+db.username=root
+db.password=root
+
+# HikariCP Connection Pool Settings
+db.pool.maximumPoolSize=10
+db.pool.minimumIdle=2
+db.pool.connectionTimeout=30000
+db.pool.idleTimeout=600000
+db.pool.maxLifetime=1800000
+
+# Database Schema Settings
+db.schema.name=todo_app
+db.schema.autoCreate=true
