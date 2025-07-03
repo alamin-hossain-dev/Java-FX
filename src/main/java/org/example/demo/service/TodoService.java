@@ -265,10 +265,6 @@ public class TodoService {
         }
     }
 
-    public boolean isDatabaseAvailable() {
-        return databaseAvailable;
-    }
-
     // Notification-related methods
     public void testNotification() {
         if (notificationService != null) {

@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1258318-86f0-4c53-9964-45155a84a7cd" name="Changes" comment="Default To do Application using Java FX." />
+    <list default="true" id="b1258318-86f0-4c53-9964-45155a84a7cd" name="Changes" comment="Default To do Application using Java FX.">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/demo/service/TodoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/demo/service/TodoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +45,8 @@
     "Maven.demo [clean,install].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Demo Project/JavaFX/demo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -117,7 +125,7 @@
       <option name="presentableId" value="Default" />
       <updated>1751447740552</updated>
       <workItem from="1751447743193" duration="4535000" />
-      <workItem from="1751507890733" duration="10935000" />
+      <workItem from="1751507890733" duration="14339000" />
     </task>
     <task id="LOCAL-00001" summary="Default To do Application using Java FX.">
       <option name="closed" value="true" />

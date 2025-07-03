@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <!-- Console appender that outputs ALL log levels to stdout (not stderr) -->
+    <!-- Console appender with conditional color support -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <target>System.out</target>
-        <encoder>
-            <pattern>[%thread] %level %logger{36} - %msg%n</pattern>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- Use colors if JANSI is available, fallback to plain text -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{36}) - %msg%n</pattern>
         </encoder>
+        <!-- Enable JANSI but don't fail if not available -->
+        <withJansi>true</withJansi>
     </appender>
 
     <!-- Set root logger level and appender -->
@@ -13,6 +16,16 @@
         <appender-ref ref="STDOUT" />
     </root>
     
-    <!-- Reduce HikariCP verbose logging -->
+    <!-- Application-specific loggers with appropriate levels -->
+    <logger name="org.example.demo" level="INFO" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+    
+    <!-- Third-party library noise reduction -->
     <logger name="com.zaxxer.hikari" level="WARN"/>
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+    
+    <!-- Suppress internal Logback status messages in production -->
+    <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
 </configuration>
