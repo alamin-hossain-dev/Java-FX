@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import org.example.demo.model.Todo;
+import org.example.demo.service.impl.TodoServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +19,7 @@ public class NotificationService {
     private static final Logger logger = LoggerFactory.getLogger(NotificationService.class);
     private static NotificationService instance;
     private final ScheduledExecutorService scheduler;
-    private TodoService todoService; // Remove final to avoid initialization issues
+    private TodoServiceImpl todoService; // Remove final to avoid initialization issues
     private boolean systemTraySupported;
     private SystemTray systemTray;
     private TrayIcon trayIcon;
@@ -70,7 +71,7 @@ public class NotificationService {
         try {
             // Get TodoService instance when needed to avoid circular dependency
             if (todoService == null) {
-                todoService = TodoService.getInstance();
+                todoService = TodoServiceImpl.getInstance();
             }
             
             LocalDateTime now = LocalDateTime.now();
@@ -135,7 +136,7 @@ public class NotificationService {
     private void markTodoComplete(Todo todo) {
         try {
             if (todoService == null) {
-                todoService = TodoService.getInstance();
+                todoService = TodoServiceImpl.getInstance();
             }
             todo.setCompleted(true);
             todoService.updateTodo(todo);
@@ -148,7 +149,7 @@ public class NotificationService {
     private void snoozeTodo(Todo todo, int minutes) {
         try {
             if (todoService == null) {
-                todoService = TodoService.getInstance();
+                todoService = TodoServiceImpl.getInstance();
             }
             LocalDateTime newDueDate = todo.getDueDate().plusMinutes(minutes);
             todo.setDueDate(newDueDate);

@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.example.demo.service.TodoService;
+import org.example.demo.service.impl.TodoServiceImpl;
 
 import java.io.IOException;
 
@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
         
         // Handle application shutdown
         stage.setOnCloseRequest(event -> {
-            TodoService.getInstance().shutdown();
+            TodoServiceImpl.getInstance().shutdown();
         });
         
         stage.show();

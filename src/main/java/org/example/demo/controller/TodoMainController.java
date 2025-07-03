@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 import org.example.demo.component.TodoCell;
 import org.example.demo.model.Todo;
-import org.example.demo.service.TodoService;
+import org.example.demo.service.impl.TodoServiceImpl;
 
 import java.io.IOException;
 import java.net.URL;
@@ -51,14 +51,14 @@ public class TodoMainController implements Initializable, TodoCell.TodoCellCallb
     @FXML
     private VBox emptyStateContainer;
 
-    private TodoService todoService;
+    private TodoServiceImpl todoService;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         log.info("Initializing TodoMainController");
 
         try {
-            todoService = TodoService.getInstance();
+            todoService = TodoServiceImpl.getInstance();
             setupListView();
             setupFilters();
             setupSearch();

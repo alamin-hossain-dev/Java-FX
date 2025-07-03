@@ -27,5 +27,4 @@ module org.example.demo {
     exports org.example.demo.service;
     exports org.example.demo.component;
     exports org.example.demo.config;
-    exports org.example.demo.dao;
 }
