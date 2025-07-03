@@ -128,6 +128,17 @@ public class TodoCell extends ListCell<Todo> {
             dueDateLabel.setFont(Font.font("System", 11));
         }
 
+        // Handle edit button state based on completion status
+        boolean isCompleted = todo.isCompleted();
+        editButton.setDisable(isCompleted);
+        
+        // Update edit button tooltip
+        if (isCompleted) {
+            editButton.setTooltip(new Tooltip("Cannot edit completed todos. Mark as incomplete first."));
+        } else {
+            editButton.setTooltip(new Tooltip("Edit this todo"));
+        }
+
         // Style based on completion status
         if (todo.isCompleted()) {
             titleLabel.setStyle("-fx-strikethrough: true; -fx-text-fill: gray;");

@@ -38,6 +38,19 @@
     -fx-background-color: #1976D2;
 }
 
+.edit-button:disabled {
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #888888;
+    -fx-cursor: default;
+    -fx-opacity: 0.6;
+}
+
+.edit-button:disabled:hover {
+    -fx-background-color: #cccccc;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
 .delete-button {
     -fx-background-color: #F44336;
     -fx-text-fill: white;

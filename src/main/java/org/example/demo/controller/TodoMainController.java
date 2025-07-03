@@ -196,6 +196,18 @@ public class TodoMainController implements Initializable, TodoCell.TodoCellCallb
 
     @Override
     public void onEdit(Todo todo) {
+        // Prevent editing completed todos
+        if (todo.isCompleted()) {
+            log.warn("Attempted to edit completed todo: {}", todo.getTitle());
+            
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Cannot Edit Completed Todo");
+            alert.setHeaderText("Todo is Completed");
+            alert.setContentText("You cannot edit a completed todo. Please mark it as incomplete first if you need to make changes.");
+            alert.showAndWait();
+            return;
+        }
+        
         openTodoDialog(todo);
     }
 
